@@ -7,5 +7,16 @@
   </head>
   <body>
     <h1><%= title %></h1>
+    <ul>
+      <% for (msg of messages) { %>
+      <li>
+        <h2><%= msg.user %></h2>
+        <p><%= msg.text %></p>
+        <time datetime="<%= msg.added.toISOString() %>">
+          <%= msg.added.toLocaleString() %>
+        </time>
+      </li>
+      <% } %>
+    </ul>
   </body>
 </html>
