@@ -1,12 +1,11 @@
-import messages from "../db.js";
+import { getMessageById } from "../db/queries.js";
 import CustomNotFoundError from "../errors/CustomNotFoundError.js";
 
-export function getMessage(req, res) {
-  const index = Number(req.params.id);
-
-  if (index < 0 || index >= messages.length) {
+export async function getMessage(req, res) {
+  const message = await getMessageById(req.params.id);
+  if (!message) {
     throw new CustomNotFoundError("Message not found");
   }
 
-  res.render("message", { message: messages[index] });
+  res.render("message", { message });
 }

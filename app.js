@@ -2,6 +2,7 @@ import express from "express";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import indexRouter from "./routes/indexRouter.js";
+import "dotenv/config";
 
 const app = express();
 

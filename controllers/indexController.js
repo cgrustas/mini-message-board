@@ -1,5 +1,8 @@
-import messages from "../db.js";
+import { getMessages } from "../db/queries.js";
 
-export function getIndex(req, res) {
-  res.render("index", { title: "Mini Messageboard", messages: messages });
+export async function getIndex(req, res) {
+  res.render("index", {
+    title: "Mini Messageboard",
+    messages: await getMessages(),
+  });
 }

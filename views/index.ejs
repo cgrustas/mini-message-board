@@ -8,14 +8,14 @@
   <body>
     <h1><%= title %></h1>
     <ul>
-      <% for (let i = 0; i < messages.length; i++) { %>
+      <% for (message of messages) { %>
       <li>
-        <h2><%= messages[i].user %></h2>
-        <p><%= messages[i].text %></p>
-        <time datetime="<%= messages[i].added.toISOString() %>">
-          <%= messages[i].added.toLocaleString() %>
+        <h2><%= message.user %></h2>
+        <p><%= message.text %></p>
+        <time datetime="<%= message.added.toISOString() %>">
+          <%= message.added.toLocaleString() %>
         </time>
-        <a href="/message/<%= i %>">View</a>
+        <a href="/message/<%= message.id %>">View</a>
       </li>
       <% } %>
     </ul>
