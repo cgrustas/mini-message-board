@@ -1,5 +1,9 @@
 import { Pool } from "pg";
 
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+});
+
 const createTable = async () => {
   await pool.query(`
     CREATE TABLE IF NOT EXISTS messages (
@@ -13,6 +17,4 @@ const createTable = async () => {
 
 createTable().then(() => console.log("Table ready"));
 
-export default new Pool({
-  connectionString: process.env.DATABASE_URL,
-});
+export default pool;
