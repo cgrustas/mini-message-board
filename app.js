@@ -3,6 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import indexRouter from "./routes/indexRouter.js";
 import "dotenv/config";
+import "./db/pool.js";
 
 const app = express();
 
